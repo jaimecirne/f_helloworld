@@ -1,6 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:fluttertest/models/tasks.dart';
 import 'dart:collection';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 class TaskData extends ChangeNotifier {
   List<Task> _tasks = [
@@ -17,8 +19,8 @@ class TaskData extends ChangeNotifier {
     return _tasks.length;
   }
 
-  void addTask(String newTaskTitle) {
-    final task = Task(name: newTaskTitle);
+  void addTask(String newTaskTitle, String randomJoke) {
+    final task = Task(name: newTaskTitle, joke: randomJoke);
 
     _tasks.add(task);
     notifyListeners();
@@ -32,5 +34,18 @@ class TaskData extends ChangeNotifier {
   void deleteTask(Task task) {
     _tasks.remove(task);
     notifyListeners();
+  }
+
+  Future<String> fetchRandomJoke() async {
+    final response =
+        await http.get(Uri.parse('https://api.chucknorris.io/jokes/random'));
+
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> data =
+          json.decode(response.body); // Corrija esta linha
+      return data['value'];
+    } else {
+      throw Exception('Failed to fetch random joke');
+    }
   }
 }

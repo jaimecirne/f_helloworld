@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:fluttertest/models/task_data.dart';
+import 'dart:convert';
 
 class AddTaskScreen extends StatelessWidget {
   final Function addTaskCallback;
@@ -47,9 +48,12 @@ class AddTaskScreen extends StatelessWidget {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.lightBlueAccent,
               ),
-              onPressed: () {
+              onPressed: () async {
+                String randomJoke =
+                    await Provider.of<TaskData>(context, listen: false)
+                        .fetchRandomJoke();
                 Provider.of<TaskData>(context, listen: false)
-                    .addTask(newTaskTitle);
+                    .addTask(newTaskTitle, randomJoke);
                 Navigator.pop(context);
               },
             ),

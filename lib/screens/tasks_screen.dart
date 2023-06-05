@@ -52,7 +52,7 @@ class TasksScreen extends StatelessWidget {
                   height: 10.0,
                 ),
                 Text(
-                  'ToDelay',
+                  'To-Delay',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 50.0,
