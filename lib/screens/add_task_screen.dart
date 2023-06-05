@@ -29,7 +29,7 @@ class AddTaskScreen extends StatelessWidget {
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 30.0,
-                color: Colors.lightBlueAccent,
+                color: Colors.white,
               ),
             ),
             TextField(
@@ -39,12 +39,14 @@ class AddTaskScreen extends StatelessWidget {
                 newTaskTitle = newText;
               },
             ),
-            TextButton(
+            ElevatedButton(
               child: Text(
                 'Add',
                 style: TextStyle(color: Colors.white),
               ),
-              //color: Colors.lightBlueAccent,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.lightBlueAccent,
+              ),
               onPressed: () {
                 Provider.of<TaskData>(context, listen: false)
                     .addTask(newTaskTitle);

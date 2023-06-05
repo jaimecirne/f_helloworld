@@ -52,7 +52,7 @@ class TasksScreen extends StatelessWidget {
                   height: 10.0,
                 ),
                 Text(
-                  'Todoey',
+                  'ToDelay',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 50.0,
@@ -60,7 +60,7 @@ class TasksScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '${Provider.of<TaskData>(context).taskCount} Tasks',
+                  '${Provider.of<TaskData>(context).taskCount} Tasks to procrastinate',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
