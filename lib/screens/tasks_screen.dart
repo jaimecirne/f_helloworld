@@ -39,20 +39,20 @@ class TasksScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                CircleAvatar(
-                  child: Icon(
-                    Icons.list,
-                    size: 30.0,
-                    color: Colors.lightBlueAccent,
-                  ),
-                  backgroundColor: Colors.white,
-                  radius: 30.0,
-                ),
+                // CircleAvatar(
+                //   child: Icon(
+                //     Icons.list,
+                //     size: 30.0,
+                //     color: Colors.lightBlueAccent,
+                //   ),
+                //   backgroundColor: Colors.white,
+                //   radius: 30.0,
+                // ),
                 SizedBox(
                   height: 10.0,
                 ),
                 Text(
-                  'ToDelay',
+                  'To-Delay',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 50.0,
